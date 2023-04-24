@@ -50,7 +50,6 @@ const options = {
   apis: ["./controllers/*.js"],
 };
 
-
 const specs = swaggerJsDoc(options);
 
 const app = express();
@@ -81,6 +80,10 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
+
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
 
 // routes
 app.use("/api/auth", authRoutes);
