@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 const helmet = require("helmet");
@@ -65,7 +65,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // setup the logger
-app.use(morgan("tiny", { stream: accessLogStream }));
+// app.use(morgan("tiny", { stream: accessLogStream }));
 
 // database connection
 mongoose
