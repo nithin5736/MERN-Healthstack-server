@@ -68,7 +68,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // database connection
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect("mongodb+srv://sainithin:gubba12345@healthstackdb.eunhy5z.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
