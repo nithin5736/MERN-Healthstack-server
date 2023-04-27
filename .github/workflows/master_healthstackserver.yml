@@ -32,6 +32,16 @@ jobs:
         push: true
         tags: mernhealthstack.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_cb8a05317e594232962d2e68f466d5d8 }}/healthstack-server:${{ github.sha }}
         file: ./Dockerfile
+  
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run Tests
+        run: |
+          npm install 
+          npm test
 
   deploy:
     runs-on: ubuntu-latest
