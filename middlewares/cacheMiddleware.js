@@ -24,16 +24,15 @@ module.exports.cacheUserLogin = async (req, res, next) => {
   const { username, email, password, usertype } = req.body;
   const data = await client.get(username);
   if (data !== null) {
-    console.log("cache")
     if (email !== JSON.parse(data).email) {
-      return res.json({ msg: "Invalid email", status: false });
+      res.json({ msg: "Invalid email", status: false });
     }
 
     if (password !== JSON.parse(data).password) {
-      return res.json({ msg: "Invalid password", status: false });
+      res.json({ msg: "Invalid password", status: false });
     }
     if (usertype !== JSON.parse(data).usertype) {
-      return res.json({ msg: "Invalid usertype", status: false });
+      res.json({ msg: "Invalid usertype", status: false });
     }
 
     const accessToken = jwt.sign(
@@ -45,6 +44,7 @@ module.exports.cacheUserLogin = async (req, res, next) => {
       process.env.JWT_SECRET_KEY
     );
     delete data.password;
+    client.flushAll();
     return res.json({ status: true, user: JSON.parse(data), accessToken });
   } else {
     console.log("no cache")

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+  "scripts": {  
     "test": "mocha 'Test/*.js' --testTimeout 10000 --exit",
     "start": "node index.js"
   },

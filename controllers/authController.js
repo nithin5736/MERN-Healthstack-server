@@ -138,10 +138,11 @@ module.exports.register = async (req, res, next) => {
         email,
         password,
         usertype,
-      })
+      }),
+      'EX',
+      5 * 60
     );
 
-    console.log("register")
     return res.json({ status: true, user });
   } catch (err) {
     next(err);
@@ -215,7 +216,6 @@ module.exports.login = async (req, res, next) => {
       process.env.JWT_SECRET_KEY
     );
     delete usernameCheck.password;
-    // console.log(usernameCheck)
     return res.json({ status: true, user: usernameCheck, accessToken });
   } catch (err) {
     next(err);

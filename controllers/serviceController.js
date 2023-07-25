@@ -229,7 +229,7 @@ module.exports.addComment = async (req, res, next) => {
 module.exports.allComments = async (req, res, next) => {
   try {
     const reviews = await Review.find({}).populate("user").populate("product");
-    console.log(reviews);
+    // console.log(reviews);
     return res.json(reviews);
   } catch (err) {
     next(err);
@@ -247,7 +247,7 @@ module.exports.paymentFunction = async (req, res, next) => {
       if (stripeErr) {
         res.status(500).send({ error: stripeErr });
       } else {
-        console.log(stripeRes);
+        // console.log(stripeRes);
         res.status(200).send({ success: stripeRes });
       }
     });
