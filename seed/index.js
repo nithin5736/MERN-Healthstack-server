@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const productList  = require('./productList');
 const Product = require('../models/productModel');
 
-mongoose.connect("mongodb+srv://sainithin:gubba12345@healthstackdb.eunhy5z.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://sainithin:gubba@cluster0.aqsuno5.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
